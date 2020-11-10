@@ -1,12 +1,15 @@
-<ul>
-  <% @tasks.each do |task| %>
-    <li>
-      <%= check_box("completed",{checked: task.completed} )%> <%= link_to task.title, task_path(task) %>
-      <%= link_to "Delete #{task.title}",
-            task_path(task),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-    </li>
-  <% end %>
-</ul>
-<%= link_to "Create new task", new_task_path  %>
+<div class="container">
+  <h1>My tasks</h1>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li class="task-list">
+        <%= check_box_tag "completed", "completed", task.completed %> <%= link_to task.title, task_path(task) %>
+        <%= link_to "Delete",
+              task_path(task),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to "Create new task", new_task_path  %>
+</div>

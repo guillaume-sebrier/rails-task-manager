@@ -1,5 +1,8 @@
-<h2><%= @task.title %></h2>
-<p><%= @task.details %></p>
-<p><%= check_box("completed",@task.completed,{checked: @task.completed} )%><%= @task.completed ? "This task is completed" : "Yet to complete" %></p>
+<div class="container">
 
-<%= link_to "Back to home page", tasks_path %>
+  <h2><%= @task.title %></h2>
+  <p><%= @task.details %></p>
+  <p><%= check_box("completed",@task.completed,{checked: @task.completed} )%><%= @task.completed ? "This task is completed" : "Yet to complete" %></p>
+  <div><%= link_to "Edit", edit_task_path(@task) %></div>
+  <div><%= link_to "Back to home page", tasks_path %></div>
+</div>
